@@ -1,0 +1,23 @@
+2016-09-27 18:18:21,302 INFO  [default] cteq66
+
+2016-09-27 18:18:24,026 INFO  A total of 12 permutations have been considered for this assumption
+2016-09-27 18:18:28,233 INFO  
+	**************** MEM output ****************
+	Probability             = (3.25e-18 +/- 5.1e-20)
+	Relative precision      = 1.6%
+	Chi2                    = 1.93
+	Final state             = 1
+	Hypothesis              = 0
+	Number of unreco's jets = 0
+	Number of permutations  = 12
+	Total number of calls   = 9375
+	Maximum number of calls = 2000
+	Phase-space efficiency  = 94%
+	Error code              = 0
+	TF = 0                  = 948
+	Job done in...............4.21 seconds
+	********************************************
+
+2016-09-27 18:18:28,237 INFO  A total of 12 permutations have been considered for this assumption
+2016-09-27 18:18:37,040 FATAL [default] CRASH HANDLED; Application has crashed due to [SIGINT] signal
+2016-09-27 18:18:37,040 WARN  [default] Aborting application. Reason: Fatal log at [/nfs/dust/cms/user/mwassmer/CMSSW_8_0_19/src/TTH/MEIntegratorStandalone/interface/easylogging++.h:5583]

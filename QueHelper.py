@@ -61,7 +61,7 @@ class QueHelper:
           exit(1)
       self.ExecLines=[
           "export VO_CMS_SW_DIR=/cvmfs/cms.cern.ch\n",
-          "export SCRAM_ARCH=slc6_amd64_gcc481\n",
+          "export SCRAM_ARCH=slc6_amd64_gcc530\n",
           "source $VO_CMS_SW_DIR/cmsset_default.sh\n",
           "cd "+self.CMSSWBASE+"/src\n",
           "eval `scram runtime -sh`\n"
