@@ -9,6 +9,7 @@ def get_event_ranges(number_of_events_per_job,sample):
     ranges=[]
     i=0
     while (((i+1)*number_of_events_per_job)<n_entries):
+      print i
       range_=[]
       range_.append(i*number_of_events_per_job)
       range_.append((i+1)*number_of_events_per_job-1)
@@ -26,7 +27,7 @@ def create_script(cmsswpath,looperpath,rootfile,firstevent,lastevent,jobnumber,s
       script+='python '+looperpath+'cc_looper_new.py --infile '+InputDirectoryOfMEMTrees+rootfile+' --firstEvent '+str(firstevent)+' --lastEvent '+str(lastevent)+' --outfile '+OutputDirectoryForMEMTrees+samplename+'_'+str(jobnumber)+'.root'+' --conf CSV --doMem'
     else:
       script+='python '+looperpath+'cc_looper_new.py --infile '+InputDirectoryOfMEMTrees+rootfile+' --firstEvent '+str(firstevent)+' --lastEvent '+str(lastevent)+' --outfile '+OutputDirectoryForMEMTrees+samplename+'_'+str(jobnumber)+'.root'+' --conf CSV'
-    filename=samplename+'_'+str(jobnumber)+'.sh'
+    filename="scripts/"+samplename+'_'+str(jobnumber)+'.sh'
     f=open(filename,'w')
     f.write(script)
     f.close()
@@ -35,7 +36,7 @@ def create_script(cmsswpath,looperpath,rootfile,firstevent,lastevent,jobnumber,s
     
     
     
-do_mem=True
+do_mem=False
   
 trees=[]  
 plot_ranges=[]
