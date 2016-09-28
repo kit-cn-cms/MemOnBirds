@@ -2,6 +2,7 @@ from Definitions import *
 import ROOT
 import os
 import stat
+import glob
 def get_event_ranges(number_of_events_per_job,sample):
     n_entries=sample.GetEntries()
     #print n_entries
@@ -19,6 +20,7 @@ def get_event_ranges(number_of_events_per_job,sample):
     return ranges
   
 def create_script(cmsswpath,looperpath,rootfile,firstevent,lastevent,jobnumber,samplename,do_mem):
+    print samplename
     script='#!/bin/bash\n'
     script+='export VO_CMS_SW_DIR=/cvmfs/cms.cern.ch\n'
     script+='source $VO_CMS_SW_DIR/cmsset_default.sh\n'
@@ -27,7 +29,7 @@ def create_script(cmsswpath,looperpath,rootfile,firstevent,lastevent,jobnumber,s
       script+='python '+looperpath+'cc_looper_new.py --infile '+InputDirectoryOfMEMTrees+rootfile+' --firstEvent '+str(firstevent)+' --lastEvent '+str(lastevent)+' --outfile '+OutputDirectoryForMEMTrees+samplename+'_'+str(jobnumber)+'.root'+' --conf CSV --doMem'
     else:
       script+='python '+looperpath+'cc_looper_new.py --infile '+InputDirectoryOfMEMTrees+rootfile+' --firstEvent '+str(firstevent)+' --lastEvent '+str(lastevent)+' --outfile '+OutputDirectoryForMEMTrees+samplename+'_'+str(jobnumber)+'.root'+' --conf CSV'
-    filename="scripts/"+samplename+'_'+str(jobnumber)+'.sh'
+    filename='scripts/'+samplename+'_'+str(jobnumber)+'.sh'
     f=open(filename,'w')
     f.write(script)
     f.close()
@@ -40,12 +42,24 @@ do_mem=False
   
 trees=[]  
 plot_ranges=[]
-  
+
+print [sample[0] for sample in Samples]
 for sample in Samples:
+  print sample[0]
+  array=glob.glob(InputDirectoryOfMEMTrees+sample[1])
+  if not (len(array)>0):
+    print "not found"
+    print "removed sample ",sample[0]
+    Samples.remove(sample)
+    
+print "---------------------------------"  
+for sample in Samples:  
   tree = ROOT.TChain("tree",sample[0])
   tree.Add(InputDirectoryOfMEMTrees+sample[1])
+  print tree.GetTitle()
   trees.append(tree)
-  
+#print trees  
+
 for tree,sample in zip(trees,Samples):
   plot_ranges.append(get_event_ranges(sample[2],tree))
 #sample = ROOT.TChain("tree","test")
