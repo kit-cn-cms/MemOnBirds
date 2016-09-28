@@ -10,5 +10,5 @@ InputDirectoryOfMEMTrees="/nfs/dust/cms/user/kelmorab/MEMInputTrees80x_newBTags/
 cmsswpath='/nfs/dust/cms/user/mwassmer/CMSSW_8_0_19/'
 looperpath='/nfs/dust/cms/user/mwassmer/CMSSW_8_0_19/src/TTH/CommonClassifier/crab/'
 Samples=[
-	["ttHbb_nominal","ttHbb_nominal.root",5],
+	["ttHbb_nominal","ttHbb_nominal.root",10000],
 ]

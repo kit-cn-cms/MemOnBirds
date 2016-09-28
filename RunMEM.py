@@ -35,7 +35,7 @@ def create_script(cmsswpath,looperpath,rootfile,firstevent,lastevent,jobnumber,s
     
     
     
-do_mem=True
+do_mem=False
   
 trees=[]  
 plot_ranges=[]
