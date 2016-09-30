@@ -7,7 +7,7 @@ OutputDirectoryForMEMTrees="/nfs/dust/cms/user/mwassmer/BLRoutput_ICHEP_V3/"
 
 InputDirectoryOfMEMTrees="/nfs/dust/cms/user/kelmorab/MEMInputTrees80x_ICHEP_V3/Category_all/"
 OutputDirectoryForMEMDatabase="/nfs/dust/cms/user/mwassmer/MEM_database_new/"
-
+OutputDirectoryForMEMDatabase_ETH="/nfs/dust/cms/user/mwassmer/MEM_database_ETH/"
 #cmsswpath='/nfs/dust/cms/user/kelmorab/MEMProd/CMSSW_8_0_19/'
 cmsswpath='/nfs/dust/cms/user/mwassmer/CMSSW_8_0_19/'
 #looperpath='/nfs/dust/cms/user/kelmorab/MEMProd/CMSSW_8_0_19/src/TTH/CommonClassifier/crab/'
