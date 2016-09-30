@@ -10,8 +10,8 @@ def create_script(cmsswpath,samplename,rootfile,systematic,syst):
     script+='export VO_CMS_SW_DIR=/cvmfs/cms.cern.ch\n'
     script+='source $VO_CMS_SW_DIR/cmsset_default.sh\n'
     script+='cd '+cmsswpath+'src\neval `scram runtime -sh`\n'
-    script+='mkdir '+OutputDirectoryForMEMDatabase_ETH+samplename+'\n'
-    script+='python '+cmsswpath+'src/MEMDataBase/MEMDataBase/test/createDataBaseFromTree_ETH.py '+OutputDirectoryForMEMDatabase_ETH+samplename+' '+samplename+' '+str(syst)+' '+rootfile
+    script+='mkdir '+OutputDirectoryForMEMDatabase_ETH+samplename+systematic+'\n'
+    script+='python '+cmsswpath+'src/MEMDataBase/MEMDataBase/test/createDataBaseFromTree_ETH.py '+OutputDirectoryForMEMDatabase_ETH+samplename+systematic+' '+samplename+' '+str(syst)+' '+rootfile
     filename='scripts_database_ETH/'+samplename+systematic+'.sh'
     f=open(filename,'w')
     f.write(script)
